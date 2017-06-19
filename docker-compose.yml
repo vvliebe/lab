@@ -1,8 +1,8 @@
 version: '2'
 services:
-  backend:
+  admin:
     build: ./admin
-    container_name: backend
+    container_name: admin
     ports: 
       - "8081:12306"
     volumes: 
