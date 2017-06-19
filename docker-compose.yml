@@ -15,5 +15,6 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./www/dist:/app/www
       - ./nginx/local:/etc/nginx/conf.d
+      - ./www/dist:/app/www
+      - ./backend/dist:/app/backend
