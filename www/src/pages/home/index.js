@@ -2,7 +2,7 @@ import React from 'react'
 import style from './home.scss'
 
 import {dateFormatter} from '@/lib/utils'
-import {getLocation, getWeatherByLocation, testAPI, testAPI2} from '@/lib/api'
+import {getLocation, getWeatherByLocation} from '@/lib/api'
 
 class HomePage extends React.Component {
   constructor (props) {
