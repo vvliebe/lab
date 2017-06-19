@@ -18,3 +18,8 @@ services:
       - ./nginx/local:/etc/nginx/conf.d
       - ./www/dist:/app/www
       - ./backend/dist:/app/backend
+  mongo:
+    image: mongo
+    container_name: db
+    volumes: 
+      - ./db:/data/db
