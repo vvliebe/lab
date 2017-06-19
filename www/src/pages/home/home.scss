@@ -1,0 +1,22 @@
+.leftTop {
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  display: flex;
+  align-items: flex-end;
+  font-family: Helvetica, STHeiti, sans-serif;
+  text-shadow: 1px 1px 5px #000;
+}
+
+.alarm {
+  font-size: 128px;
+}
+
+.weather {
+  font-size: 24px;
+  font-weight: normal;
+  margin: 0 0 30px 20px;
+  div {
+    margin-top: 5px;
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "vs-admin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "docker run -it --rm --name vs-admin -p 8080:12306 -v \"$PWD\":/usr/src/app -w /usr/src/app node node app.js"
+  },
+  "author": "vvliebe",
+  "license": "MIT",
+  "dependencies": {
+    "koa": "^2.2.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-router": "^7.2.0",
+    "koa2-cors": "^2.0.3"
+  }
+}

@@ -1,0 +1,19 @@
+version: '2'
+services:
+  backend:
+    build: ./admin
+    container_name: backend
+    ports: 
+      - "8081:12306"
+    volumes: 
+      - ./admin:/var/app
+    expose: 
+      - "12306"
+  web:
+    image: nginx
+    container_name: www
+    ports:
+      - "80:80"
+    volumes:
+      - ./www/dist:/app/www
+      - ./nginx/local:/etc/nginx/conf.d
