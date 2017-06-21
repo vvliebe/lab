@@ -57,7 +57,7 @@
     flex-direction: column;
     width: $box-size;
     height: $box-size;
-    border-radius: 10px;
+    border-radius: $box-size / 12;
     overflow: hidden;
     &:first-child {
       margin-right: $box-size / 5;
@@ -67,7 +67,7 @@
   .bottom {
     position: relative;
     flex: 1;
-    background: #333;
+    background: #161616;
     overflow: hidden;
     span {
       position: absolute;
@@ -85,7 +85,6 @@
     span {
       top: 0;
     }
-    transform: perspective( 600px ) rotateX(45deg);
   }
   .bottom {
     span {
