@@ -1,3 +1,3 @@
 module.exports = {
-  mongodb: 'mongodb://db:27017/mysite'
+  mongodb: 'mongodb://mysite:13141487457@db:27017/mysite'
 }
