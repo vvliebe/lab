@@ -7,7 +7,7 @@ import { formatMessage } from '../utils/format'
 
 @Controller('/user')
 export default class UserController {
-  @Post()
+  @Post('/login')
   public async login(@Body() body): Promise<IHttpMessage> {
     let {name, password} = body
     console.log(name, password)

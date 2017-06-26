@@ -1,24 +1,27 @@
 <template>
   <div :class="$style.container">
     <div :class="$style.main">
-      <clock :class="{[$style.clock]: showLoginModal}" :time="now"></clock>
+      <clock :class="{[$style.clock]: showLoginModal || showRegisterModal}" :time="now"></clock>
     </div>
-    <div :class="$style.modal" v-if="showLoginModal">
-      <input type="password" placeholder="输入密码">
+    <div :class="$style.modal" v-if="showLoginModal || showRegisterModal">
+      <input type="password" v-model="password" placeholder="输入密码">
       <i :class="['iconfont', 'icon-go', $style.iconGo]" @click="login"></i>
-      <i :class="['iconfont', 'icon-cancel', $style.iconCancel]" @click="showLoginModal = false"></i>
+      <i :class="['iconfont', 'icon-cancel', $style.iconCancel]" @click="hideModal"></i>
     </div>
   </div>
 </template>
 <script>
   import Clock from '@/components/clock/index'
   import keyshortcut from 'keyshortcut'
+  import { UserAPI } from '@/apis'
   export default {
     data () {
       return {
         now: null,
         timerId: '',
-        showLoginModal: false
+        showLoginModal: false,
+        showRegisterModal: false,
+        password: ''
       }
     },
     components: {
@@ -35,19 +38,47 @@
       })
       keyshortcut.register({
         ' ': () => {
+          if (this.showRegisterModal) return
           this.showLoginModal = true
         },
         'escape': () => {
-          this.showLoginModal = false
+          this.hideModal()
         },
         'enter': () => {
           this.login()
+        },
+        'alt+alt+alt+alt': () => {
+          if (this.showLoginModal) return
+          this.showRegisterModal = true
         }
       })
     },
     methods: {
-      login () {
-        console.log('login')
+      async login () {
+        let params = {
+          name: 'admin',
+          password: this.password
+        }
+        if (this.showRegisterModal) {
+          let {code} = await UserAPI.register(params)
+          if (code === 200) {
+            this.$notify.success({
+              title: '注册成功'
+            })
+          }
+        } else {
+          let {code} = await UserAPI.login(params)
+          if (code === 200) {
+            this.$notify.success({
+              title: '登陆成功'
+            })
+          }
+        }
+      },
+      hideModal () {
+        this.showLoginModal = false
+        this.showRegisterModal = false
+        this.password = ''
       }
     },
     beforeDestroy () {
