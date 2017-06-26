@@ -4,7 +4,7 @@ MAINTAINER vvliebe "https://github.com/vvliebe"
 WORKDIR /var/app
 RUN npm install
 RUN npm install -g pm2
+RUN npm install -g ts-node
+RUN pm2 install typescript
 
-ENV NODE_ENV production
-
-CMD ["pm2", "start", "app.js", "--no-daemon", "--watch"]
+CMD ["pm2", "start", "app.ts", "--no-daemon", "--watch"]

@@ -4,7 +4,7 @@ services:
     build: ./admin
     container_name: admin
     environment: 
-      - NODE_ENV=dev
+      - NODE_ENV=prod
     ports: 
       - "8081:12306"
     volumes: 
@@ -21,13 +21,10 @@ services:
       - ./www/dist:/app/www
       - ./backend/dist:/app/backend
   mongo:
-    image: tutum/mongodb
-    container_name: db_test
-    environment:
-      - MONGODB_USER=mysite
-      - MONGODB_DATABASE=mysite
-      - MONGODB_PASS=123456
+    image: mongo
+    container_name: db
+    command: ['--auth']
     ports:
       - "10010:27017"
     volumes: 
-      - ./db/local:/data/db
+      - ./db/server:/data/db

@@ -10,10 +10,22 @@
   "author": "vvliebe",
   "license": "MIT",
   "dependencies": {
+    "boom": "^5.1.0",
+    "config": "^1.26.1",
     "koa": "^2.2.0",
     "koa-bodyparser": "^4.2.0",
+    "koa-logger": "^3.0.0",
     "koa-router": "^7.2.0",
     "koa2-cors": "^2.0.3",
-    "mongolass": "^2.4.5"
+    "koa2-swagger-ui": "^2.5.1",
+    "mongoose": "^4.10.8",
+    "trafficlight": "^3.2.3"
+  },
+  "devDependencies": {
+    "@types/boom": "^4.3.5",
+    "@types/koa": "^2.0.39",
+    "@types/koa-router": "^7.0.22",
+    "@types/mongoose": "^4.7.18",
+    "@types/node": "^8.0.2"
   }
 }

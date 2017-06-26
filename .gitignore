@@ -36,6 +36,9 @@ build/Release
 node_modules/
 dist/
 db/
+config/
+scripts/
+
 jspm_packages/
 
 # Typescript v1 declaration files
