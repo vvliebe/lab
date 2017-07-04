@@ -67,10 +67,16 @@
             })
           }
         } else {
-          let {code} = await UserAPI.login(params)
+          let {code, data: {token, user}} = await UserAPI.login(params)
           if (code === 200) {
+            sessionStorage.setItem('access-token', token)
+            sessionStorage.setItem('user', JSON.stringify(user))
             this.$notify.success({
-              title: '登陆成功'
+              title: '登陆成功',
+              duration: 500,
+              onClose: () => {
+                this.$router.push({ name: 'home' })
+              }
             })
           }
         }

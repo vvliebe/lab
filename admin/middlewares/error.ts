@@ -4,7 +4,6 @@ export default async function (ctx: Context, next) {
   try {
     await next()
   } catch (error) {
-    console.log(error)
     if (error.isBoom) {
       let {output: {statusCode: code, payload}, message} = error
       ctx.status = code,
@@ -14,12 +13,12 @@ export default async function (ctx: Context, next) {
         error: payload.error
       }
     } else {
-      ctx.status = ctx.status || 500
+      ctx.status = error.status || ctx.status || 500
       ctx.body = {
         code: ctx.status,
         message: error.message,
         error: error.name
       }
     }
-  }  
+  }
 }

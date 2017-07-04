@@ -26,6 +26,7 @@ compiler.plugin('compilation', function (compilation) {
   })
 })
 
+app.use(require('connect-history-api-fallback')())
 app.use(devMiddleware)
 app.use(hotMiddleware)
 

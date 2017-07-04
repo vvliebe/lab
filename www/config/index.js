@@ -3,7 +3,7 @@ module.exports = {
     sourceMap: true
   },
   dev: {
-    PORT: 10010,
+    PORT: 10086,
     autoOpenBrowser: true
   }
-};
+}
