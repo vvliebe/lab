@@ -1,3 +1,65 @@
 .links {
-  display: flex
+   display: flex;
+   flex-direction: column;
+   overflow: hidden;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+}
+
+.linksContainer {
+  flex: 1;
+  height: 100%;
+  padding: 20px;
+  overflow-y: auto;
+  .menu {
+    margin-bottom: 30px;
+    > div {
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    li {
+      min-width: 220px;
+      width: 33.3%;
+      height: 120px;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    .card {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      border: 1px solid #ccc;
+      box-shadow: 1px 2px 3px #f2f6f8;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      color: #333;
+      transition: all .1s ease-in-out;
+      &:hover {
+        transform: scale(1.05);
+      }
+      img {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        margin: 0 10px;
+      }
+      div {
+        flex: 1;
+        min-height: 40px;
+        margin-right: 10px;
+      }
+    }
+  }
 }

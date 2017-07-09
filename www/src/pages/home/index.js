@@ -1,5 +1,6 @@
 import React from 'react'
 import style from './home.scss'
+import {NavLink} from 'react-router-dom'
 
 import {dateFormatter} from '@/lib/utils'
 import {getLocation, getWeatherByLocation} from '@/lib/api'
@@ -29,7 +30,13 @@ class HomePage extends React.Component {
     clearInterval(this.state.alarmId)
   }
   render () {
-    return <div className="container">
+    return <div className={`container ${style.container}`}>
+      <ul className={style.menu}>
+        <li><NavLink exact activeClassName={style.selected} to="/">Home</NavLink></li>
+        <li><NavLink activeClassName={style.selected} to="/projects">Project</NavLink></li>
+        <li><NavLink activeClassName={style.selected} to="/about">About</NavLink></li>
+        <li><NavLink activeClassName={style.selected} to="/links/0">Links</NavLink></li>
+      </ul>
       <div className={style.leftTop}>
         <div className={style.alarm}>
           {dateFormatter(this.state.time, 'hh:mm')}

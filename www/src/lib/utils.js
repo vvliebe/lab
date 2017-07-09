@@ -8,6 +8,7 @@ export const leftPad = (str, len, pChar) => {
   res += str
   return res
 }
+
 export const dateFormatter = (timestamp, formatter = 'YYYY-MM-DD hh:mm:ss') => {
   let date = new Date(timestamp)
   const regMap = {
@@ -28,4 +29,25 @@ export const dateFormatter = (timestamp, formatter = 'YYYY-MM-DD hh:mm:ss') => {
   let datetime = new Date(timestamp)
   datetime.toLocaleDateString()
   return formatter
+}
+
+export const scrollTop = (dom, top, time = 200) => {
+  let originTop = dom.scrollTop
+  let speed = (top - originTop) / time
+  let compareTop = originTop
+  let alarmId = setInterval(() => {
+    let targetTop = dom.scrollTop + speed * 10
+    if (targetTop === compareTop) {
+      clearInterval(alarmId)
+      return
+    }
+    if ((top - dom.scrollTop) * (top - targetTop) <= 0) {
+      dom.scrollTop = top
+      clearInterval(alarmId)
+    } else {
+      dom.scrollTop = targetTop
+      compareTop = targetTop
+    }
+    console.log(dom.scrollTop, targetTop, top)
+  }, 10)
 }

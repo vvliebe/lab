@@ -1,0 +1,28 @@
+.navbar {
+  height: 64px;
+  background: #324157;
+
+  ul {
+    float: right;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    float: left;
+    width: 120px;
+    height: 64px;
+    line-height: 64px;
+    text-align: center;
+    list-style: none;
+    cursor: pointer;
+    color: #bfcbd9;
+    transition: all .15s ease-in-out;
+    &:hover {
+      color: #4078c0;
+    }
+    &.active {
+      color: #4078c0;
+    }
+  }
+}
