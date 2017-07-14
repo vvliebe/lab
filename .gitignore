@@ -36,8 +36,9 @@ build/Release
 node_modules/
 dist/
 db/
-config/
+admin/config/prod.json
 scripts/
+docker-compose.yml
 
 jspm_packages/
 

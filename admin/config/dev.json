@@ -1,0 +1,8 @@
+{
+  "MONGO": {
+    "DEV": "mongodb://mysite:123456@db_test:27017/mysite"
+  },
+  "APP": {
+    "SECRET": "vvliebe"
+  }
+}

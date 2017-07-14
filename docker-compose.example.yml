@@ -15,16 +15,19 @@ services:
     image: nginx
     container_name: www
     ports:
-      - "80:80"
+      - "81:80"
     volumes:
       - ./nginx/local:/etc/nginx/conf.d
       - ./www/dist:/app/www
       - ./backend/dist:/app/backend
   mongo:
-    image: mongo
-    container_name: db
-    command: ['--auth']
+    image: tutum/mongodb
+    container_name: db_test
+    environment:
+      - MONGODB_USER=mysite
+      - MONGODB_DATABASE=mysite
+      - MONGODB_PASS=123456
     ports:
       - "10010:27017"
     volumes: 
-      - ./db/server:/data/db
+      - ./db/local:/data/db
