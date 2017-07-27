@@ -3,7 +3,7 @@ import { Notification } from 'element-ui'
 
 import UserAPI from './user'
 
-axios.defaults.baseURL = '//api.vvliebe.org'
+axios.defaults.baseURL = '//api.vvliebe.com'
 
 axios.interceptors.response.use(response => {
   console.log(response)

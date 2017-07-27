@@ -1,4 +1,4 @@
-import * as Boom from 'Boom'
+import * as Boom from 'boom'
 import * as config from 'config'
 import { Context } from "koa";
 import {updateToken} from '../services/token'
